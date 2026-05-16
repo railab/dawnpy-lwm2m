@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools >= 61.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dawnpy-lwm2m"
+version = "0.1.0"
+description = "LwM2M transport package for Dawn Wakaama targets"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "dawnpy",
+  "aiocoap>=0.4.17",
+  "click>=8.1",
+]
+
+[project.urls]
+Repository = "https://github.com/railab/dawnpy-lwm2m"
+Documentation = "https://railab.github.io/dawn/tools/dawnpy-lwm2m.html"
+"Dawn Project" = "https://github.com/railab/dawn"
+
+[project.scripts]
+dawnpy-lwm2m = "dawnpy_lwm2m.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["dawnpy_lwm2m*"]
+
+[tool.setuptools.package-data]
+dawnpy_lwm2m = ["py.typed"]
+
+[tool.black]
+line-length = 79
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 79
